@@ -28,8 +28,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -63,8 +63,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "national",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -98,8 +98,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "national",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -130,11 +130,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_checked": "2026-10-15T12:17:46.087922+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "local",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -168,8 +168,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "national",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -203,8 +203,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "local",
     "source": "StepStone",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -238,8 +238,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "local",
     "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -270,11 +270,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_checked": "2026-10-15T12:17:46.087922+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "national",
     "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -305,7 +305,7 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:36:20.530013+00:00",
     "last_seen": "2026-10-15T12:36:20.530013+00:00",
@@ -343,10 +343,45 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_checked": "2026-10-15T12:36:20.530013+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
     "scope": "national",
     "source": "Jooble",
+    "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
+  },
+  "web:aa310b2909c690b13369827b": {
+    "id": "web:aa310b2909c690b13369827b",
+    "title": "Minijob IT-Support & Geräteverwaltung (m/w/d)",
+    "company": "Nije potvrdjeno; izvor: LinkedIn",
+    "location": "Muenchen: tekstualni signal",
+    "distance_km": null,
+    "work_mode": "Nije potvrdjeno",
+    "job_type": "Minijob pomenut u indeksu: proveriti",
+    "required_skills": "Nisu preuzeti puni uslovi; otvori original",
+    "matched_skills": [
+      "support"
+    ],
+    "schedule_evidence": [],
+    "remote_evidence": [],
+    "language_and_licence": [],
+    "pay": "Nije potvrdjeno",
+    "published": "",
+    "source_url": "https://de.linkedin.com/jobs/view/minijob-it-support-geräteverwaltung-m-w-d-at-media4care-4409268816?position=41&pageNum=0",
+    "apply_url": "https://de.linkedin.com/jobs/view/minijob-it-support-geräteverwaltung-m-w-d-at-media4care-4409268816?position=41&pageNum=0",
+    "apply_type": "Rezultat sa LinkedIn; moze biti oglas ili lista rezultata",
+    "warnings": [
+      "Rezultat web pretrage, ne provereni aktivni oglas",
+      "Kompanija, tip ugovora i uslovi nisu nezavisno potvrdjeni",
+      "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
+    ],
+    "review": true,
+    "status": "Web kandidat: rucna provera",
+    "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
+    "first_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_seen": "2026-10-15T12:50:34.119660+00:00",
+    "last_checked": "2026-10-15T12:50:34.119660+00:00",
+    "scope": "local",
+    "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
   }
 }
