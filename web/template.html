@@ -1,5 +1,1103 @@
-<!doctype html><html lang="sr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minijob radar</title><style>
-*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#17263d;font:14px system-ui}header{background:#10263e;color:white;padding:32px 4vw}h1{font-size:32px;margin:10px 0}.eyebrow{color:#6ee7c5;letter-spacing:3px;font-size:11px}main{padding:24px 4vw}.stats{display:flex;gap:16px;flex-wrap:wrap}.stat{background:white;padding:20px 28px;border:1px solid #e0e7ef;border-radius:14px;min-width:160px}.stat strong{display:block;font-size:30px}.tools{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}input,select,button{font:inherit;border:1px solid #cbd5e1;border-radius:9px;padding:11px;background:white}input{min-width:250px}button{cursor:pointer}.wrap{overflow:auto;background:white;border:1px solid #dce4ee;border-radius:14px}table{border-collapse:collapse;min-width:2400px;width:100%}th{background:#eaf0f6;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}td,th{padding:15px;vertical-align:top;border-bottom:1px solid #e6edf4}td{max-width:330px;min-width:120px}td:first-child{min-width:250px}a{color:#087f78}small{display:block;color:#64748b;margin-top:6px}.pill{display:inline-block;padding:4px 8px;border-radius:20px;background:#e0f5ee;color:#14634d}.warning{background:#fff6db;color:#8c570b}.notice{padding:14px 18px;background:#fff8e6;border-radius:12px;line-height:1.6;margin:18px 0}details{max-width:330px}summary{cursor:pointer}label{display:flex;align-items:center;gap:6px}label input{min-width:0}.empty{padding:40px;text-align:center}footer{color:#64748b;padding:20px 0;line-height:1.6}
-</style></head><body><header><div class="eyebrow">PERSONAL JOB RADAR</div><h1 id="title"></h1><p id="subtitle"></p><p id="updated"></p></header><main><div class="stats"><div class="stat">Приказано<strong id="visible">0</strong></div><div class="stat">Нови данас<strong id="new">0</strong></div><div class="stat">За ручну проверу<strong id="review">0</strong></div></div><div class="notice">Провера извора и HTTP линка није гаранција да је послодавац легитиман. Не уплаћуј новац за запослење. Удаљеност је ваздушна линија, не дужина пута. Remote ван локалног круга захтева експлицитан текст о потпуном remote раду. Термин доставе је текстуални сигнал, не потврда да су све смене компатибилне.</div><div class="tools"><input id="q" aria-label="Претрага" placeholder="Позиција, компанија, вештине…"><select id="view" aria-label="Статус"><option value="active">Доступни, без упозорења</option><option value="review">За ручну проверу</option><option value="all">Сви, укључујући архиву</option></select><select id="sort" aria-label="Редослед"><option value="new">Најновије пронађени</option><option value="distance">Удаљеност</option></select><label><input id="saved" type="checkbox">Само сачувани</label><button id="reload">Освежи приказ</button><button id="csv">Извези CSV</button></div><div id="health" class="notice"></div><div class="wrap"><table><thead><tr id="head"></tr></thead><tbody id="rows"></tbody></table></div><footer>Аутоматска претрага је подешена за 10:00 Europe/Berlin. GitHub може одложити покретање. Листа се допуњује по BA референтном броју; стари огласи се не бришу већ добијају статус. Вештине пронађене у тексту нису аутоматски обавезни услови. Сачувани огласи остају само у овом прегледачу.</footer></main><script id="payload" type="application/json">__PAYLOAD__</script><script>
-let data=JSON.parse(document.getElementById('payload').textContent);const $=x=>document.getElementById(x);let favorites=[];try{favorites=JSON.parse(localStorage.getItem('radar-'+data.config.mode)||'[]')}catch{}const cols=['Позиција','Компанија','Тип посла','Локација','Удаљеност','Начин рада','Вештине из извора','Поклапање са CV-јем','Радно време / доказ','Језик / дозвола','Накнада','Објављено','Први пут пронађен','Последња провера','Статус извора','Провера линка / ризик','Пријава','Сачувај'];cols.forEach(c=>{const th=document.createElement('th');th.textContent=c;$('head').append(th)});let shown=[];function el(tag,text,parent){const e=document.createElement(tag);e.textContent=text;parent.append(e);return e}function render(){const d=data;document.title=d.config.title;$('title').textContent=d.config.title;$('subtitle').textContent=d.config.centre_label+' · '+d.config.radius_km+' km'+(d.config.mode==='cv'?' + потпуни remote у Немачкој':' · викенд или после 17h');$('updated').textContent='Последњи покушај: '+new Date(d.report.attempted_at).toLocaleString('sr-RS');$('health').textContent=[...(d.report.errors||[]),...(d.report.warnings||[])].join(' | ')||'Претрага завршена без пријављених техничких грешака. Покривен је један извор, не цело тржиште.';const q=$('q').value.toLowerCase();shown=d.jobs.filter(j=>JSON.stringify(j).toLowerCase().includes(q)&&(!$('saved').checked||favorites.includes(j.id))&&($('view').value==='all'||($('view').value==='review'?j.review:j.status==='Извор доступан'&&!j.review)));shown.sort((a,b)=>$('sort').value==='distance'?(a.distance_km??99999)-(b.distance_km??99999):b.first_seen.localeCompare(a.first_seen));$('visible').textContent=shown.length;$('new').textContent=d.jobs.filter(j=>new Date(j.first_seen).toLocaleDateString('en-CA',{timeZone:'Europe/Berlin'})===new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Berlin'})).length;$('review').textContent=d.jobs.filter(j=>j.review).length;$('rows').replaceChildren();for(const j of shown){const tr=document.createElement('tr');const values=[j.title,j.company,j.job_type,j.location,j.distance_km==null?'Непозната':j.distance_km+' km',j.work_mode,j.required_skills,j.matched_skills.join(', ')||'Не примењује се',j.schedule_evidence.join(' / ')||'Није потврђено',j.language_and_licence.join(' / ')||'Није издвојено',j.pay,j.published||'Није наведено',new Date(j.first_seen).toLocaleDateString('sr-RS'),new Date(j.last_checked).toLocaleString('sr-RS'),j.status,[j.link_check,...j.warnings].join(' / ')];values.forEach((v,i)=>{const td=el('td','',tr);if(i===6||i===9){const de=document.createElement('details');el('summary','Прикажи',de);el('p',v,de);td.append(de)}else td.textContent=v;if(i===0){const de=document.createElement('details');el('summary','Извод описа',de);el('p',j.description_excerpt,de);td.append(de)}});const td=el('td','',tr);const a=el('a','Отвори оглас',td);if(/^https:\/\//i.test(j.apply_url)){a.href=j.apply_url;a.target='_blank';a.rel='noopener noreferrer'}el('small',j.apply_type,td);const src=el('a','BA извор',td);src.href=j.source_url;src.target='_blank';src.rel='noopener noreferrer';const last=el('td','',tr);const b=el('button',favorites.includes(j.id)?'★':'☆',last);b.onclick=()=>{favorites=favorites.includes(j.id)?favorites.filter(x=>x!==j.id):[...favorites,j.id];try{localStorage.setItem('radar-'+d.config.mode,JSON.stringify(favorites))}catch{}render()};$('rows').append(tr)}if(!shown.length){const tr=el('tr','',$('rows'));const td=el('td','Нема резултата у овом приказу. Провери „За ручну проверу“ и статус претраге.',tr);td.colSpan=cols.length}}['q','view','sort','saved'].forEach(x=>$(x).addEventListener('input',render));async function refresh(){try{const r=await fetch('jobs.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error(r.status);data=await r.json();render()}catch(e){$('health').textContent='Није могуће преузети нове податке. Приказана је уграђена копија.'}}$('reload').onclick=refresh;$('csv').onclick=()=>{const keys=['title','company','job_type','location','distance_km','work_mode','required_skills','matched_skills','schedule_evidence','language_and_licence','pay','published','first_seen','last_checked','status','link_check','apply_url'];const esc=v=>'"'+String(Array.isArray(v)?v.join(' | '):v??'').replace(/^[=+@-]/,"'$&").replaceAll('"','""')+'"';const content='\ufeff'+[keys,...shown.map(j=>keys.map(k=>j[k]))].map(r=>r.map(esc).join(',')).join('\r\n');const u=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='jobs.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};render();if(location.protocol!=='file:')setInterval(refresh,300000);
-</script></body></html>
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stefan Markovic - Minijob Tracker</title>
+
+  <style>
+    :root {
+      --background: #f4f7fb;
+      --surface: #ffffff;
+      --text: #17263d;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #0f766e;
+      --header: #10263e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    header {
+      padding: 34px 4%;
+      background: var(--header);
+      color: white;
+    }
+
+    .eyebrow {
+      color: #79dfca;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 14px 0;
+      font-size: clamp(25px, 4vw, 38px);
+    }
+
+    header p {
+      margin: 8px 0;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    main {
+      padding: 26px 4%;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 32px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: end;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 16px;
+    }
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .control > span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    input,
+    select,
+    button {
+      padding: 11px 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+    }
+
+    #query {
+      width: min(340px, 80vw);
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #edf3f8;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    summary:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #5eead4;
+      outline-offset: 3px;
+    }
+
+    .primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .primary:hover {
+      background: #115e59;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+    }
+
+    .checkbox input {
+      width: 17px;
+      height: 17px;
+    }
+
+    #feedback {
+      min-height: 20px;
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .table-container {
+      overflow: auto;
+      max-height: 75vh;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      min-width: 2700px;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 16px;
+      background: #eaf0f6;
+      color: #475569;
+      text-align: left;
+      white-space: nowrap;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      min-width: 120px;
+      max-width: 340px;
+      padding: 17px 16px;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    td:first-child {
+      min-width: 260px;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    .job-title {
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .apply-link {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    small {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 20px;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 12px;
+    }
+
+    .badge.available {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge.review {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .saved-button {
+      min-width: 45px;
+      font-size: 20px;
+    }
+
+    details summary {
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    details p {
+      white-space: pre-wrap;
+    }
+
+    .technical {
+      margin-top: 20px;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+      color: var(--muted);
+    }
+
+    .technical ul {
+      padding-left: 20px;
+      line-height: 1.7;
+    }
+
+    .empty {
+      padding: 45px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 22px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header {
+        padding: 26px 5%;
+      }
+
+      main {
+        padding: 20px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="eyebrow">PERSONAL JOB RADAR</div>
+    <h1>Stefan Markovic - Minijob Tracker</h1>
+    <p id="subtitle"></p>
+    <p id="updated"></p>
+  </header>
+
+  <main>
+    <section class="stats" aria-label="Pregled oglasa">
+      <div class="stat">
+        <span>Prikazani rezultati</span>
+        <strong id="visible-count">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>Prvi put pronađeni danas</span>
+        <strong id="new-count">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>Za ručnu proveru</span>
+        <strong id="review-count">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>Ukupno u istoriji</span>
+        <strong id="total-count">0</strong>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Filteri">
+      <label class="control">
+        <span>Pretraga</span>
+        <input
+          id="query"
+          type="search"
+          placeholder="Pozicija, kompanija, veštine..."
+        >
+      </label>
+
+      <label class="control">
+        <span>Prikaz</span>
+        <select id="view">
+          <option value="all">Svi, uključujući istoriju</option>
+          <option value="active">Izvor dostupan, bez upozorenja</option>
+          <option value="review">Za ručnu proveru</option>
+        </select>
+      </label>
+
+      <label class="control">
+        <span>Izvor</span>
+        <select id="source">
+          <option value="">Svi izvori</option>
+        </select>
+      </label>
+
+      <label class="control">
+        <span>Sortiranje</span>
+        <select id="sort">
+          <option value="new">Najnovije pronađeni</option>
+          <option value="distance">Najbliži prvo</option>
+          <option value="company">Kompanija A–Z</option>
+        </select>
+      </label>
+
+      <label class="checkbox">
+        <input id="saved-only" type="checkbox">
+        Samo sačuvani
+      </label>
+
+      <button id="refresh" class="primary" type="button">
+        Osveži prikaz
+      </button>
+
+      <button id="export" type="button">
+        Izvezi CSV
+      </button>
+    </section>
+
+    <div id="feedback" role="status" aria-live="polite"></div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Pozicija</th>
+            <th scope="col">Kompanija</th>
+            <th scope="col">Izvor</th>
+            <th scope="col">Tip posla</th>
+            <th scope="col">Lokacija</th>
+            <th scope="col">Udaljenost</th>
+            <th scope="col">Način rada</th>
+            <th scope="col">Veštine iz izvora</th>
+            <th scope="col">CV poklapanje</th>
+            <th scope="col">Radno vreme / dokaz</th>
+            <th scope="col">Jezik / dozvola</th>
+            <th scope="col">Naknada</th>
+            <th scope="col">Objavljeno</th>
+            <th scope="col">Pronađeno</th>
+            <th scope="col">Poslednja provera</th>
+            <th scope="col">Status</th>
+            <th scope="col">Provera / napomene</th>
+            <th scope="col">Prijava</th>
+            <th scope="col">Sačuvaj</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <details class="technical">
+      <summary>Detalji pretrage</summary>
+      <p id="technical-summary"></p>
+      <ul id="technical-messages"></ul>
+      <p>
+        Dostupan link nije garancija legitimnosti ili aktivnosti oglasa.
+        Web kandidati zahtevaju ručnu proveru uslova, lokacije i smena.
+        Nepoznata udaljenost nije potvrda da je posao unutar 15 km.
+      </p>
+    </details>
+
+    <footer>
+      „Osveži prikaz“ učitava poslednje objavljene podatke.
+      Ne pokreće novu pretragu.
+      Sačuvani oglasi ostaju samo u ovom pregledaču.
+    </footer>
+  </main>
+
+  <!-- Ovaj marker koristi collector.py. Ne menjaj ga. -->
+  <script id="payload" type="application/json">__PAYLOAD__</script>
+
+  <script>
+    "use strict";
+
+    const PAGE_TITLE = "Stefan Markovic - Minijob Tracker";
+    const $ = id => document.getElementById(id);
+
+    let data;
+
+    try {
+      data = JSON.parse($("payload").textContent);
+    } catch (error) {
+      $("feedback").textContent =
+        "Podaci nisu generisani. Ovaj template treba da obradi workflow.";
+      throw error;
+    }
+
+    function jobs() {
+      return Array.isArray(data.jobs)
+        ? data.jobs.filter(job => job && typeof job === "object")
+        : [];
+    }
+
+    function list(value) {
+      return Array.isArray(value) ? value : [];
+    }
+
+    function display(value, fallback = "Nije navedeno") {
+      if (value === null || value === undefined || value === "") {
+        return fallback;
+      }
+
+      if (Array.isArray(value)) {
+        return value.length ? value.join(" / ") : fallback;
+      }
+
+      if (typeof value === "object") {
+        return JSON.stringify(value);
+      }
+
+      return String(value);
+    }
+
+    function formatDate(value, includeTime = false) {
+      if (!value) return "Nije navedeno";
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return String(value);
+      }
+
+      const options = {
+        timeZone: "Europe/Berlin",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      };
+
+      if (includeTime) {
+        options.hour = "2-digit";
+        options.minute = "2-digit";
+      }
+
+      return new Intl.DateTimeFormat("sr-Latn-RS", options).format(date);
+    }
+
+    function berlinDay(value) {
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) return "";
+
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Europe/Berlin",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(date);
+    }
+
+    function safeLink(value) {
+      try {
+        const url = new URL(String(value));
+
+        if (
+          url.protocol !== "https:" ||
+          url.username ||
+          url.password
+        ) {
+          return null;
+        }
+
+        return url.href;
+      } catch {
+        return null;
+      }
+    }
+
+    function sourceName(job) {
+      if (job.source) return String(job.source);
+
+      try {
+        const host = new URL(
+          job.source_url || job.apply_url
+        ).hostname.toLowerCase();
+
+        const domains = {
+          "arbeitsagentur.de": "Arbeitsagentur",
+          "linkedin.com": "LinkedIn",
+          "indeed.com": "Indeed",
+          "jooble.org": "Jooble",
+          "stepstone.de": "StepStone",
+          "kleinanzeigen.de": "Kleinanzeigen",
+          "meinestadt.de": "meinestadt",
+          "minijob-zentrale.de": "Minijob-Zentrale"
+        };
+
+        for (const [domain, name] of Object.entries(domains)) {
+          if (host === domain || host.endsWith("." + domain)) {
+            return name;
+          }
+        }
+
+        return host;
+      } catch {
+        return "Nepoznat izvor";
+      }
+    }
+
+    function available(job) {
+      return job.status === "Извор доступан";
+    }
+
+    const storageKey =
+      "minijob-tracker-saved-" + (data.config?.mode || "cv");
+
+    let favorites = [];
+
+    try {
+      const stored = JSON.parse(
+        localStorage.getItem(storageKey) || "[]"
+      );
+
+      if (Array.isArray(stored)) {
+        favorites = stored;
+      }
+    } catch {
+      favorites = [];
+    }
+
+    function element(tag, text, parent) {
+      const node = document.createElement(tag);
+      node.textContent = text;
+      parent.appendChild(node);
+      return node;
+    }
+
+    function cell(row, value) {
+      return element("td", display(value), row);
+    }
+
+    function expandableCell(row, value, label = "Prikaži") {
+      const td = element("td", "", row);
+      const details = element("details", "", td);
+      element("summary", label, details);
+      element("p", display(value), details);
+      return td;
+    }
+
+    function addLink(parent, label, value, className = "") {
+      const href = safeLink(value);
+
+      if (!href) return false;
+
+      const link = element("a", label, parent);
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.className = className;
+      return true;
+    }
+
+    function updateSources() {
+      const previous = $("source").value;
+      $("source").replaceChildren();
+
+      const all = element("option", "Svi izvori", $("source"));
+      all.value = "";
+
+      const names = [...new Set(jobs().map(sourceName))].sort();
+
+      for (const name of names) {
+        const option = element("option", name, $("source"));
+        option.value = name;
+      }
+
+      if (names.includes(previous)) {
+        $("source").value = previous;
+      }
+    }
+
+    function renderTechnical() {
+      const report = data.report || {};
+
+      $("technical-summary").textContent =
+        "Izvor izveštaja: " +
+        display(report.source) +
+        ". Završetak: " +
+        formatDate(report.completed_at, true) +
+        ". Evidentiranih upita: " +
+        list(report.queries).length +
+        ".";
+
+      $("technical-messages").replaceChildren();
+
+      const messages = [
+        ...list(report.errors),
+        ...list(report.warnings)
+      ];
+
+      if (!messages.length) {
+        element(
+          "li",
+          "U izveštaju nema evidentiranih tehničkih poruka.",
+          $("technical-messages")
+        );
+      } else {
+        for (const message of messages) {
+          element(
+            "li",
+            display(message),
+            $("technical-messages")
+          );
+        }
+      }
+    }
+
+    let shown = [];
+
+    function render() {
+      document.title = PAGE_TITLE;
+
+      const config = data.config || {};
+      const report = data.report || {};
+
+      $("subtitle").textContent =
+        display(config.centre_label, "München") +
+        " · lokalni kriterijum " +
+        display(config.radius_km, "15") +
+        " km" +
+        (
+          config.mode === "delivery"
+            ? " · dostava / vozači · vikend ili posle 17h"
+            : " · CV pretraga + remote kandidati za Nemačku"
+        );
+
+      $("updated").textContent =
+        "Poslednji pokušaj pretrage: " +
+        formatDate(report.attempted_at, true) +
+        " · vreme u Nemačkoj";
+
+      const allJobs = jobs();
+      const query = $("query").value.trim().toLowerCase();
+      const view = $("view").value;
+      const selectedSource = $("source").value;
+      const savedOnly = $("saved-only").checked;
+
+      shown = allJobs.filter(job => {
+        if (
+          query &&
+          !JSON.stringify(job).toLowerCase().includes(query)
+        ) {
+          return false;
+        }
+
+        if (
+          selectedSource &&
+          sourceName(job) !== selectedSource
+        ) {
+          return false;
+        }
+
+        if (savedOnly && !favorites.includes(job.id)) {
+          return false;
+        }
+
+        if (
+          view === "active" &&
+          (!available(job) || job.review)
+        ) {
+          return false;
+        }
+
+        if (view === "review" && !job.review) {
+          return false;
+        }
+
+        return true;
+      });
+
+      shown.sort((a, b) => {
+        if ($("sort").value === "distance") {
+          const first = Number.isFinite(a.distance_km)
+            ? a.distance_km
+            : Infinity;
+
+          const second = Number.isFinite(b.distance_km)
+            ? b.distance_km
+            : Infinity;
+
+          if (first !== second) {
+            return first < second ? -1 : 1;
+          }
+        }
+
+        if ($("sort").value === "company") {
+          return display(a.company).localeCompare(
+            display(b.company),
+            "sr-Latn"
+          );
+        }
+
+        return String(b.first_seen || "").localeCompare(
+          String(a.first_seen || "")
+        );
+      });
+
+      const today = berlinDay(new Date());
+
+      $("visible-count").textContent = shown.length;
+      $("total-count").textContent = allJobs.length;
+      $("review-count").textContent =
+        allJobs.filter(job => job.review).length;
+
+      $("new-count").textContent =
+        allJobs.filter(
+          job => berlinDay(job.first_seen) === today
+        ).length;
+
+      $("rows").replaceChildren();
+
+      for (const job of shown) {
+        const row = document.createElement("tr");
+
+        const titleCell = element("td", "", row);
+        element(
+          "div",
+          display(job.title),
+          titleCell
+        ).className = "job-title";
+
+        if (job.description_excerpt) {
+          const details = element("details", "", titleCell);
+          element("summary", "Opis / napomena", details);
+          element(
+            "p",
+            display(job.description_excerpt),
+            details
+          );
+        }
+
+        cell(row, job.company);
+        cell(row, sourceName(job));
+        cell(row, job.job_type);
+        cell(row, job.location);
+
+        cell(
+          row,
+          Number.isFinite(job.distance_km)
+            ? job.distance_km + " km vazdušnom linijom"
+            : "Nije potvrđena"
+        );
+
+        cell(row, job.work_mode);
+        expandableCell(row, job.required_skills);
+
+        cell(
+          row,
+          display(
+            job.matched_skills,
+            config.mode === "delivery"
+              ? "Ne primenjuje se"
+              : "Nema izdvojenih poklapanja"
+          )
+        );
+
+        cell(
+          row,
+          display(job.schedule_evidence, "Nije potvrđeno")
+        );
+
+        expandableCell(
+          row,
+          display(job.language_and_licence, "Nije izdvojeno")
+        );
+
+        cell(row, job.pay);
+        cell(row, formatDate(job.published));
+        cell(row, formatDate(job.first_seen));
+        cell(row, formatDate(job.last_checked, true));
+
+        const statusCell = element("td", "", row);
+        const badge = element(
+          "span",
+          display(job.status),
+          statusCell
+        );
+
+        badge.className =
+          "badge " +
+          (
+            job.review
+              ? "review"
+              : available(job)
+                ? "available"
+                : ""
+          );
+
+        const notes = [
+          job.link_check,
+          ...list(job.warnings),
+          ...list(job.remote_evidence)
+        ].filter(Boolean);
+
+        expandableCell(
+          row,
+          notes.length ? notes.join("\n\n") : "Nema napomena",
+          "Detalji"
+        );
+
+        const applyCell = element("td", "", row);
+
+        const hasLink = addLink(
+          applyCell,
+          "Otvori oglas ↗",
+          job.apply_url || job.source_url,
+          "apply-link"
+        );
+
+        if (!hasLink) {
+          element("span", "Link nije dostupan", applyCell);
+        }
+
+        element(
+          "small",
+          display(job.apply_type),
+          applyCell
+        );
+
+        if (
+          job.source_url &&
+          job.source_url !== job.apply_url
+        ) {
+          addLink(
+            applyCell,
+            "Originalni izvor",
+            job.source_url
+          );
+        }
+
+        const savedCell = element("td", "", row);
+        const isSaved = favorites.includes(job.id);
+
+        const button = element(
+          "button",
+          isSaved ? "★" : "☆",
+          savedCell
+        );
+
+        button.type = "button";
+        button.className = "saved-button";
+        button.setAttribute(
+          "aria-label",
+          isSaved ? "Ukloni iz sačuvanih" : "Sačuvaj oglas"
+        );
+        button.setAttribute("aria-pressed", String(isSaved));
+
+        button.addEventListener("click", () => {
+          favorites = favorites.includes(job.id)
+            ? favorites.filter(id => id !== job.id)
+            : [...favorites, job.id];
+
+          try {
+            localStorage.setItem(
+              storageKey,
+              JSON.stringify(favorites)
+            );
+          } catch {
+            $("feedback").textContent =
+              "Pregledač ne dozvoljava trajno čuvanje favorita.";
+          }
+
+          render();
+        });
+
+        $("rows").appendChild(row);
+      }
+
+      if (!shown.length) {
+        const row = element("tr", "", $("rows"));
+        const td = element(
+          "td",
+          "Nema rezultata za izabrane filtere. " +
+          "Izaberi sve izvore, obriši pretragu i proveri Detalje pretrage.",
+          row
+        );
+
+        td.colSpan = 19;
+        td.className = "empty";
+      }
+
+      renderTechnical();
+    }
+
+    let refreshing = false;
+
+    async function refreshData(manual = false) {
+      if (refreshing) return;
+
+      if (location.protocol === "file:") {
+        if (manual) {
+          $("feedback").textContent =
+            "Otvorena je lokalna kopija. Za nove podatke otvori objavljeni sajt.";
+        }
+        return;
+      }
+
+      refreshing = true;
+      $("refresh").disabled = true;
+
+      if (manual) {
+        $("feedback").textContent =
+          "Učitavanje poslednjih objavljenih podataka...";
+      }
+
+      try {
+        const response = await fetch(
+          "jobs.json?t=" + Date.now(),
+          { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+
+        const incoming = await response.json();
+
+        if (
+          !incoming ||
+          !Array.isArray(incoming.jobs) ||
+          !incoming.config ||
+          !incoming.report
+        ) {
+          throw new Error("Neprepoznat format podataka");
+        }
+
+        data = incoming;
+        updateSources();
+        render();
+
+        if (manual) {
+          $("feedback").textContent =
+            "Prikaz je osvežen. Nova pretraga nije pokrenuta.";
+        }
+      } catch (error) {
+        $("feedback").textContent =
+          "Novi podaci nisu učitani. Ostaje prethodni prikaz. " +
+          error.message;
+      } finally {
+        refreshing = false;
+        $("refresh").disabled = false;
+      }
+    }
+
+    function csvValue(value) {
+      let text = display(value, "");
+
+      if (/^[\s]*[=+\-@]/.test(text)) {
+        text = "'" + text;
+      }
+
+      return '"' + text.replaceAll('"', '""') + '"';
+    }
+
+    function exportCsv() {
+      const columns = [
+        ["Pozicija", job => job.title],
+        ["Kompanija", job => job.company],
+        ["Izvor", sourceName],
+        ["Tip posla", job => job.job_type],
+        ["Lokacija", job => job.location],
+        ["Udaljenost km", job => job.distance_km],
+        ["Način rada", job => job.work_mode],
+        ["Veštine iz izvora", job => job.required_skills],
+        ["CV poklapanje", job => job.matched_skills],
+        ["Radno vreme", job => job.schedule_evidence],
+        ["Jezik i dozvola", job => job.language_and_licence],
+        ["Naknada", job => job.pay],
+        ["Objavljeno", job => job.published],
+        ["Pronađeno", job => job.first_seen],
+        ["Poslednja provera", job => job.last_checked],
+        ["Status", job => job.status],
+        ["Provera linka", job => job.link_check],
+        ["Napomene", job => job.warnings],
+        ["Prijava", job => job.apply_url],
+        ["Sačuvan", job => favorites.includes(job.id) ? "Da" : "Ne"]
+      ];
+
+      const rows = [
+        columns.map(([label]) => label),
+        ...shown.map(
+          job => columns.map(([, getter]) => getter(job))
+        )
+      ];
+
+      const csv =
+        "\uFEFF" +
+        rows.map(
+          row => row.map(csvValue).join(",")
+        ).join("\r\n");
+
+      const url = URL.createObjectURL(
+        new Blob([csv], { type: "text/csv;charset=utf-8" })
+      );
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Stefan-Markovic-Minijob-Tracker.csv";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    for (const id of [
+      "query",
+      "view",
+      "source",
+      "sort",
+      "saved-only"
+    ]) {
+      $(id).addEventListener("input", render);
+    }
+
+    $("refresh").addEventListener(
+      "click",
+      () => refreshData(true)
+    );
+
+    $("export").addEventListener("click", exportCsv);
+
+    updateSources();
+    render();
+
+    if (location.protocol !== "file:") {
+      setInterval(() => refreshData(false), 300000);
+    }
+  </script>
+</body>
+</html>
