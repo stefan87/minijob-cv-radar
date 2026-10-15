@@ -31,4 +31,6 @@ SEARCH_ENDPOINTS = (
 SESSION = requests.Session()
 SESSION.headers.update({
     "X-API-Key": "jobboerse-jobsuche",
-    "User-Agent": "
+    "User-Agent": "PersonalMinijobFinder/1.1",
+    "Accept": "application/json",
+})
