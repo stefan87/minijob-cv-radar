@@ -141,7 +141,7 @@ def extract_rows(payload):
             containers.append((key, payload[key]))
 
     for name, container in containers:
-        for key in ("stellenangebote", "jobs"):
+        for key in ("ergebnisliste","stellenangebote", "jobs"):
             rows = container.get(key)
 
             if not isinstance(rows, list):
