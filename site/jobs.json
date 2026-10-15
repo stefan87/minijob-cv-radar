@@ -1,0 +1,19 @@
+{
+  "config": {
+    "title": "Minijob · CV Match",
+    "mode": "cv",
+    "radius_km": 15,
+    "centre_label": "Центар Минхена (подесиво)"
+  },
+  "report": {
+    "attempted_at": "2026-10-15T11:11:12.402499+00:00",
+    "errors": [],
+    "warnings": [
+      "Offline build: no live search or link checks performed"
+    ],
+    "queries": [],
+    "source": "BA Jobsuche (community-documented API)",
+    "live_tested": false
+  },
+  "jobs": []
+}
