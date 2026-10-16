@@ -2,7 +2,7 @@ name: Daily job radar
 
 on:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '12 11 * * *'
       timezone: Europe/Berlin
   workflow_dispatch:
 
