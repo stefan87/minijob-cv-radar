@@ -28,8 +28,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-25T01:49:46.483856+00:00",
-    "last_checked": "2026-10-25T01:49:46.483856+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -63,8 +63,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-25T01:49:46.483856+00:00",
-    "last_checked": "2026-10-25T01:49:46.483856+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "national",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -165,11 +165,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-24T21:41:47.442752+00:00",
-    "last_checked": "2026-10-24T21:41:47.442752+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "national",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -203,8 +203,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-25T01:49:46.483856+00:00",
-    "last_checked": "2026-10-25T01:49:46.483856+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "local",
     "source": "StepStone",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -305,11 +305,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_seen": "2026-10-24T21:41:47.442752+00:00",
-    "last_checked": "2026-10-24T21:41:47.442752+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "local",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -445,7 +445,7 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-16T22:09:37.762795+00:00",
     "last_seen": "2026-10-25T01:49:46.483856+00:00",
@@ -480,11 +480,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-17T05:05:05.281562+00:00",
-    "last_seen": "2026-10-24T21:41:47.442752+00:00",
-    "last_checked": "2026-10-24T21:41:47.442752+00:00",
+    "last_seen": "2026-10-25T07:01:45.583952+00:00",
+    "last_checked": "2026-10-25T07:01:45.583952+00:00",
     "scope": "local",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -690,7 +690,7 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-20T21:44:34.742878+00:00",
     "last_seen": "2026-10-25T01:49:46.483856+00:00",
@@ -726,7 +726,7 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-21T05:00:43.091039+00:00",
     "last_seen": "2026-10-25T01:49:46.483856+00:00",
