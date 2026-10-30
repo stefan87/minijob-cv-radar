@@ -28,8 +28,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-29T23:24:22.175085+00:00",
-    "last_checked": "2026-10-29T23:24:22.175085+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -60,11 +60,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-29T19:03:17.435660+00:00",
-    "last_checked": "2026-10-29T19:03:17.435660+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "national",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -270,11 +270,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-10-29T19:03:17.435660+00:00",
-    "last_checked": "2026-10-29T19:03:17.435660+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "national",
     "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -308,8 +308,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:36:20.530013+00:00",
-    "last_seen": "2026-10-29T23:24:22.175085+00:00",
-    "last_checked": "2026-10-29T23:24:22.175085+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "local",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -445,11 +445,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-16T22:09:37.762795+00:00",
-    "last_seen": "2026-10-25T01:49:46.483856+00:00",
-    "last_checked": "2026-10-25T01:49:46.483856+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "local",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -693,8 +693,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-20T21:44:34.742878+00:00",
-    "last_seen": "2026-10-29T23:24:22.175085+00:00",
-    "last_checked": "2026-10-29T23:24:22.175085+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "national",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -937,13 +937,48 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-29T00:05:25.884412+00:00",
-    "last_seen": "2026-10-29T19:03:17.435660+00:00",
-    "last_checked": "2026-10-29T19:03:17.435660+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "local",
     "source": "LinkedIn",
+    "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
+  },
+  "web:772d1bbffcff65fa2c8e46cb": {
+    "id": "web:772d1bbffcff65fa2c8e46cb",
+    "title": "Landleben: Vorteile und Nachteile im Vergleich - KleinanzeigenProjektassistenz Immobilienentwicklung Minijob Homeoffice (w ...Home Office Minijob, Jobs | kleinanzeigen.deMinijob Homeoffice, Büroarbeit und Verwaltung Jobs ...Homeoffice Minijob, Jobs | kleinanzeigen.de",
+    "company": "Nije potvrdjeno; izvor: Kleinanzeigen",
+    "location": "Nemacka / remote: proveriti",
+    "distance_km": null,
+    "work_mode": "Remote kandidat: proveriti",
+    "job_type": "Minijob pomenut u indeksu: proveriti",
+    "required_skills": "Nisu preuzeti puni uslovi; otvori original",
+    "matched_skills": [
+      "Projektmanagement"
+    ],
+    "schedule_evidence": [],
+    "remote_evidence": [],
+    "language_and_licence": [],
+    "pay": "Nije potvrdjeno",
+    "published": "",
+    "source_url": "https://themen.kleinanzeigen.de/magazin/ratgeber/landleben-vorteile-nachteile/",
+    "apply_url": "https://themen.kleinanzeigen.de/magazin/ratgeber/landleben-vorteile-nachteile/",
+    "apply_type": "Rezultat sa Kleinanzeigen; moze biti oglas ili lista rezultata",
+    "warnings": [
+      "Rezultat web pretrage, ne provereni aktivni oglas",
+      "Kompanija, tip ugovora i uslovi nisu nezavisno potvrdjeni",
+      "Potpuni remote i pravo rada iz Nemacke proveriti"
+    ],
+    "review": true,
+    "status": "Web kandidat: rucna provera",
+    "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
+    "first_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_seen": "2026-10-30T02:49:17.234163+00:00",
+    "last_checked": "2026-10-30T02:49:17.234163+00:00",
+    "scope": "national",
+    "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
   }
 }
