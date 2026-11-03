@@ -25,11 +25,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-02T20:26:10.048527+00:00",
-    "last_checked": "2026-11-02T20:26:10.048527+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -270,11 +270,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-01T22:56:01.589006+00:00",
-    "last_checked": "2026-11-01T22:56:01.589006+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
     "scope": "national",
     "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -410,11 +410,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-16T11:16:38.248301+00:00",
-    "last_seen": "2026-11-01T22:56:01.589006+00:00",
-    "last_checked": "2026-11-01T22:56:01.589006+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
     "scope": "national",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -480,11 +480,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-17T05:05:05.281562+00:00",
-    "last_seen": "2026-11-01T22:56:01.589006+00:00",
-    "last_checked": "2026-11-01T22:56:01.589006+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
     "scope": "local",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -937,11 +937,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-29T00:05:25.884412+00:00",
-    "last_seen": "2026-11-01T22:56:01.589006+00:00",
-    "last_checked": "2026-11-01T22:56:01.589006+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
     "scope": "local",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -979,6 +979,76 @@
     "last_checked": "2026-10-30T02:49:17.234163+00:00",
     "scope": "national",
     "source": "Kleinanzeigen",
+    "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
+  },
+  "web:e0d43bd59630b0b1c82ba6f7": {
+    "id": "web:e0d43bd59630b0b1c82ba6f7",
+    "title": "Minijob: 293 Jobs & Stellenangebote in Munich | 2. Nov. 2026",
+    "company": "Nije potvrdjeno; izvor: StepStone",
+    "location": "Muenchen: tekstualni signal",
+    "distance_km": null,
+    "work_mode": "Nije potvrdjeno",
+    "job_type": "Minijob pomenut u indeksu: proveriti",
+    "required_skills": "Nisu preuzeti puni uslovi; otvori original",
+    "matched_skills": [
+      "support"
+    ],
+    "schedule_evidence": [],
+    "remote_evidence": [],
+    "language_and_licence": [],
+    "pay": "Nije potvrdjeno",
+    "published": "",
+    "source_url": "https://www.stepstone.de/jobs/minijob/in-munich",
+    "apply_url": "https://www.stepstone.de/jobs/minijob/in-munich",
+    "apply_type": "Rezultat sa StepStone; moze biti oglas ili lista rezultata",
+    "warnings": [
+      "Rezultat web pretrage, ne provereni aktivni oglas",
+      "Kompanija, tip ugovora i uslovi nisu nezavisno potvrdjeni",
+      "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
+    ],
+    "review": true,
+    "status": "Web kandidat: rucna provera",
+    "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
+    "first_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
+    "scope": "local",
+    "source": "StepStone",
+    "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
+  },
+  "web:509fb007eed20f31c14f5ca1": {
+    "id": "web:509fb007eed20f31c14f5ca1",
+    "title": "Minijob: 290 Jobs & Stellenangebote in München | 3. Nov. 2026",
+    "company": "Nije potvrdjeno; izvor: StepStone",
+    "location": "Muenchen: tekstualni signal",
+    "distance_km": null,
+    "work_mode": "Nije potvrdjeno",
+    "job_type": "Minijob pomenut u indeksu: proveriti",
+    "required_skills": "Nisu preuzeti puni uslovi; otvori original",
+    "matched_skills": [
+      "support"
+    ],
+    "schedule_evidence": [],
+    "remote_evidence": [],
+    "language_and_licence": [],
+    "pay": "Nije potvrdjeno",
+    "published": "",
+    "source_url": "https://www.stepstone.de/jobs/minijob/in-münchen",
+    "apply_url": "https://www.stepstone.de/jobs/minijob/in-münchen",
+    "apply_type": "Rezultat sa StepStone; moze biti oglas ili lista rezultata",
+    "warnings": [
+      "Rezultat web pretrage, ne provereni aktivni oglas",
+      "Kompanija, tip ugovora i uslovi nisu nezavisno potvrdjeni",
+      "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
+    ],
+    "review": true,
+    "status": "Web kandidat: rucna provera",
+    "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
+    "first_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_seen": "2026-11-03T17:55:57.386926+00:00",
+    "last_checked": "2026-11-03T17:55:57.386926+00:00",
+    "scope": "local",
+    "source": "StepStone",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
   }
 }
