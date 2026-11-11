@@ -28,8 +28,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-11T09:35:47.523379+00:00",
-    "last_checked": "2026-11-11T09:35:47.523379+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -130,7 +130,7 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
     "last_seen": "2026-11-11T09:35:47.523379+00:00",
@@ -270,11 +270,11 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-11T02:00:23.954166+00:00",
-    "last_checked": "2026-11-11T02:00:23.954166+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
     "scope": "national",
     "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -480,11 +480,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-17T05:05:05.281562+00:00",
-    "last_seen": "2026-11-11T02:00:23.954166+00:00",
-    "last_checked": "2026-11-11T02:00:23.954166+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
     "scope": "local",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -690,7 +690,7 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-20T21:44:34.742878+00:00",
     "last_seen": "2026-11-11T09:35:47.523379+00:00",
@@ -937,11 +937,11 @@
       "Muenchen se pominje; radijus 15 km NIJE potvrdjen"
     ],
     "review": true,
-    "status": "Stari web kandidat: nije ponovo pronadjen",
+    "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-29T00:05:25.884412+00:00",
-    "last_seen": "2026-11-11T02:00:23.954166+00:00",
-    "last_checked": "2026-11-11T02:00:23.954166+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
     "scope": "local",
     "source": "LinkedIn",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -1220,10 +1220,45 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-11-11T09:35:47.523379+00:00",
-    "last_seen": "2026-11-11T09:35:47.523379+00:00",
-    "last_checked": "2026-11-11T09:35:47.523379+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
     "scope": "national",
     "source": "Indeed",
+    "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
+  },
+  "web:8b2d0e6a1d46f3e088f5d612": {
+    "id": "web:8b2d0e6a1d46f3e088f5d612",
+    "title": "Minijob Im Homeoffice kleinanzeigen.de",
+    "company": "Nije potvrdjeno; izvor: Kleinanzeigen",
+    "location": "Nemacka / remote: proveriti",
+    "distance_km": null,
+    "work_mode": "Remote kandidat: proveriti",
+    "job_type": "Minijob pomenut u indeksu: proveriti",
+    "required_skills": "Nisu preuzeti puni uslovi; otvori original",
+    "matched_skills": [
+      "support"
+    ],
+    "schedule_evidence": [],
+    "remote_evidence": [],
+    "language_and_licence": [],
+    "pay": "Nije potvrdjeno",
+    "published": "",
+    "source_url": "https://www.kleinanzeigen.de/s-minijob-im-homeoffice/k0",
+    "apply_url": "https://www.kleinanzeigen.de/s-minijob-im-homeoffice/k0",
+    "apply_type": "Rezultat sa Kleinanzeigen; moze biti oglas ili lista rezultata",
+    "warnings": [
+      "Rezultat web pretrage, ne provereni aktivni oglas",
+      "Kompanija, tip ugovora i uslovi nisu nezavisno potvrdjeni",
+      "Potpuni remote i pravo rada iz Nemacke proveriti"
+    ],
+    "review": true,
+    "status": "Web kandidat: rucna provera",
+    "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
+    "first_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_seen": "2026-11-11T17:30:50.717515+00:00",
+    "last_checked": "2026-11-11T17:30:50.717515+00:00",
+    "scope": "national",
+    "source": "Kleinanzeigen",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
   }
 }
