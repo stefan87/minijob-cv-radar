@@ -28,8 +28,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-26T05:34:08.535214+00:00",
-    "last_checked": "2026-11-26T05:34:08.535214+00:00",
+    "last_seen": "2026-11-26T15:52:11.253265+00:00",
+    "last_checked": "2026-11-26T15:52:11.253265+00:00",
     "scope": "local",
     "source": "Indeed",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -133,8 +133,8 @@
     "status": "Web kandidat: rucna provera",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-10-15T12:17:46.087922+00:00",
-    "last_seen": "2026-11-26T05:34:08.535214+00:00",
-    "last_checked": "2026-11-26T05:34:08.535214+00:00",
+    "last_seen": "2026-11-26T15:52:11.253265+00:00",
+    "last_checked": "2026-11-26T15:52:11.253265+00:00",
     "scope": "local",
     "source": "Jooble",
     "link_check": "Link iz indeksa; HTTP, aktivnost i spam nisu provereni"
@@ -1217,7 +1217,7 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-11-11T09:35:47.523379+00:00",
     "last_seen": "2026-11-26T05:34:08.535214+00:00",
@@ -1498,7 +1498,7 @@
       "Potpuni remote i pravo rada iz Nemacke proveriti"
     ],
     "review": true,
-    "status": "Web kandidat: rucna provera",
+    "status": "Stari web kandidat: nije ponovo pronadjen",
     "description_excerpt": "Nije preuzet pun opis. Otvori izvor i proveri uslove.",
     "first_seen": "2026-11-25T05:06:35.704700+00:00",
     "last_seen": "2026-11-26T05:34:08.535214+00:00",
